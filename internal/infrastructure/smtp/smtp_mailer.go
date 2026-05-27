@@ -205,6 +205,7 @@ func (m *SMTPMailer) deliver(ctx context.Context, email *domain.Email, msg []byt
 		Timeout: m.dialTimeout,
 	}
 
+	// Connect with TLS if enabled
 	if m.useTLS {
 		tlsConfig := &tls.Config{
 			ServerName: m.host,
